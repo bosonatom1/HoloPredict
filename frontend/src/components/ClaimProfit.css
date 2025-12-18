@@ -1,0 +1,75 @@
+.claim-profit {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  padding: 0.875rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.claim-profit h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--success-light);
+  letter-spacing: -0.025em;
+}
+
+.profit-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--success-light);
+  margin-bottom: 1.25rem;
+  font-family: 'SF Mono', 'Monaco', monospace;
+  letter-spacing: -0.02em;
+}
+
+.claim-button {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--success);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.claim-button:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.claim-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error {
+  padding: 0.875rem;
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  color: var(--error-light);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .claim-profit {
+    padding: 1.25rem;
+  }
+
+  .profit-amount {
+    font-size: 1.75rem;
+  }
+
+  .claim-button {
+    padding: 0.75rem;
+  }
+}

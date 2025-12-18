@@ -1,0 +1,152 @@
+.oracle-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.oracle-panel h3 {
+  margin: 0 0 clamp(0.75rem, 1.8vw, 1.25rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: -0.025em;
+}
+
+.oracle-actions {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.action-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.outcome-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.outcome-buttons button {
+  padding: clamp(0.75rem, 2vw, 1rem);
+  background: var(--surface-light);
+  border: 2px solid var(--border-light);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.outcome-buttons button:hover:not(.active) {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--primary);
+  transform: scale(1.02);
+}
+
+.outcome-buttons button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.action-group button:not(.outcome-buttons button) {
+  padding: clamp(0.75rem, 2vw, 0.875rem);
+  background: var(--primary);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+.action-group button:hover:not(:disabled):not(.outcome-buttons button) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.action-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.close-market-btn {
+  background: var(--error) !important;
+}
+
+.close-market-btn:hover:not(:disabled) {
+  background: #dc2626 !important;
+}
+
+.decrypt-btn {
+  background: var(--accent) !important;
+}
+
+.decrypt-btn:hover:not(:disabled) {
+  background: #0891b2 !important;
+}
+
+.warning {
+  padding: clamp(0.5rem, 1.5vw, 0.75rem);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 6px;
+  color: var(--warning-light);
+  font-size: clamp(0.75rem, 2vw, 0.8125rem);
+  font-weight: 500;
+  text-align: center;
+}
+
+.help-text {
+  font-size: clamp(0.6875rem, 1.8vw, 0.75rem);
+  color: var(--text-muted);
+  margin-top: clamp(-0.375rem, -0.8vw, -0.25rem);
+  font-style: italic;
+}
+
+.error {
+  padding: clamp(0.625rem, 1.8vw, 0.875rem);
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  color: var(--error-light);
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  margin-top: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+@media (max-width: 768px) {
+  .outcome-buttons {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+artifacts/
+cache/
+coverage/
+dist/
+types/
+*.js
+!hardhat.config.ts
+
+

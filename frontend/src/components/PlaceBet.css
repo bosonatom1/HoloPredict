@@ -1,0 +1,202 @@
+.place-bet {
+  background: linear-gradient(135deg, rgba(26, 35, 50, 0.9), rgba(36, 45, 63, 0.8));
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid rgba(148, 163, 184, 0.15);
+  border-radius: 20px;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.place-bet h3 {
+  margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+}
+
+.bet-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.375rem, 1vw, 0.5rem);
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.side-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  width: 100%;
+}
+
+.side-buttons button {
+  width: 100%;
+  min-width: 0;
+}
+
+.side-buttons button {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(0.875rem, 2vw, 1.25rem);
+  background: rgba(26, 35, 50, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary);
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.side-buttons button:hover {
+  background: rgba(36, 45, 63, 0.8);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.side-buttons button.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 
+    0 4px 16px rgba(99, 102, 241, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.form-group input {
+  padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1rem, 2vw, 1.25rem);
+  background: rgba(26, 35, 50, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(148, 163, 184, 0.15);
+  color: var(--text-primary);
+  border-radius: 12px;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 
+    0 0 0 3px rgba(99, 102, 241, 0.15),
+    0 4px 12px rgba(99, 102, 241, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.bet-form button[type="submit"] {
+  padding: clamp(0.875rem, 2vw, 1rem) clamp(1.25rem, 2vw, 1.5rem);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  color: white;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 
+    0 4px 16px rgba(99, 102, 241, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bet-form button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(99, 102, 241, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.bet-form button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Amount Presets */
+.amount-presets {
+  display: flex;
+  gap: clamp(0.375rem, 1vw, 0.5rem);
+  margin-top: clamp(0.25rem, 0.8vw, 0.5rem);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.preset-btn {
+  padding: clamp(0.5rem, 1.5vw, 0.625rem) clamp(0.75rem, 2vw, 1rem);
+  background: rgba(26, 35, 50, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.8vw, 0.8125rem);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preset-btn:hover:not(:disabled) {
+  background: rgba(36, 45, 63, 0.8);
+  border-color: var(--primary);
+  color: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+}
+
+.preset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error {
+  padding: 0.875rem;
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  border-radius: 8px;
+  color: var(--error-light);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .place-bet {
+    border-radius: 16px;
+  }
+
+  .side-buttons button {
+    padding: 0.625rem 0.875rem;
+  }
+}

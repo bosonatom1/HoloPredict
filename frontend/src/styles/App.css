@@ -1,0 +1,457 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: rgba(26, 35, 50, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-left h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin: 0 0 0.375rem 0;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+}
+
+.logo-clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-clickable:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.header-left p {
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.create-market-header-btn {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: clamp(0.5rem, 1vw, 0.625rem) clamp(1rem, 1.5vw, 1.25rem);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.create-market-header-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.create-market-header-btn.active {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.app-nav {
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-nav button {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.app-nav button:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+  border-color: var(--primary);
+}
+
+.app-nav button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1rem 2rem 2rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+/* Page transition wrapper */
+.page-transition {
+  animation: pageTransition 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.fhe-status {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-lighter);
+  position: relative;
+  overflow: hidden;
+}
+
+.fhe-status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.fhe-status p {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.875rem 1rem;
+    border-bottom-width: 1px;
+  }
+
+  .header-content {
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .header-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .header-left h1 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+  
+  .header-left p {
+    font-size: clamp(0.6875rem, 2vw, 0.75rem);
+    line-height: 1.3;
+  }
+
+  .header-right {
+    flex-shrink: 0;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .create-market-header-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+}
+
+/* Breakpoint at 617px - when Create Market overlaps logo */
+@media (max-width: 617px) {
+  .app-header {
+    padding: 0.875rem 1rem;
+  }
+
+  .header-content {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .header-left {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-left h1 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header-left p {
+    font-size: clamp(0.6875rem, 2vw, 0.75rem);
+    line-height: 1.3;
+  }
+
+  .logo-clickable {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 1;
+    align-self: flex-start;
+    position: relative;
+    z-index: 0;
+    min-width: 0;
+    max-width: 60%;
+    margin-left: auto;
+  }
+
+  /* Wallet info (header-actions) - aligned horizontally with HoloPredict title */
+  .header-actions {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  /* Create Market - appears below wallet, first in row */
+  .header-right > .create-market-header-btn {
+    order: 2;
+    flex-shrink: 0;
+  }
+
+  /* FAQ - appears below wallet, next to Create Market (same row) */
+  .header-right > .faq-container {
+    order: 3;
+    flex-shrink: 0;
+  }
+
+  /* Style Create Market and FAQ when they're below wallet */
+  .create-market-header-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.75rem;
+  }
+
+  .header-left h1 {
+    font-size: 1.125rem;
+  }
+  
+  .header-left p {
+    font-size: 0.6875rem;
+  }
+
+  .header-right {
+    gap: 0.375rem;
+  }
+
+  .header-actions {
+    gap: 0.375rem;
+  }
+
+  .create-market-header-btn {
+    font-size: 0.6875rem;
+    padding: 0.4375rem 0.75rem;
+  }
+
+  .app-main {
+    padding: 0.75rem;
+  }
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  pointer-events: auto;
+  animation: slideInRight 0.3s ease-out;
+  min-width: 300px;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast-success {
+  border-left: 4px solid var(--success);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.toast-error {
+  border-left: 4px solid var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.toast-warning {
+  border-left: 4px solid var(--warning);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.toast-info {
+  border-left: 4px solid var(--accent);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.toast-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.toast-message {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.toast-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .toast-container {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+
+  .toast {
+    min-width: auto;
+  }
+}
